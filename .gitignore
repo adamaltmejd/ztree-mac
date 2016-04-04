@@ -2,4 +2,6 @@
 ztree.exe
 zleaf.exe
 ztree.log
+zleaf.log
 datafiles/
+*.zip
