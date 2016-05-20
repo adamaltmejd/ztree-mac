@@ -9,8 +9,7 @@ killgroup(){
 # Check if ztree is already running, otherwise exit
 if [[ -z $(ps -ef | grep "ztree" | grep -v grep) ]];
 then
-	# wine ztree.exe /dir datafiles /language en > /dev/null 2>&1 &
-	wine ztree.exe /dir datafiles /language en > ztree.log 2>&1 &
+	wine ztree.exe /dir datafiles /language en > /dev/null 2>&1 &
 	echo "No ztree.exe running so I'll start it for you. Run the shell script again to start the leaves. To quit ztree.exe use file->quit."
 	exit;
 fi
@@ -30,7 +29,7 @@ if [[ "$leafs" -eq "$leafs" ]] 2> /dev/null
 then
 	# Kill all old leaves that are running (or nothing happens) and delete old log file
 	ps -ef | grep "zleaf" | grep -v grep | awk '{print $2}' | xargs kill
-	rm -f ../zleaf.log
+	rm -f zleaf.log
 
 	# Start new leaves
 	for i in `seq 1 $leafs`; do
